@@ -8,10 +8,11 @@ import ar.com.educacionit.dao.exceptions.GenericException;
 public class AdministradorDeConexiones {
 
 	public static Connection obtenerConexion() throws GenericException {
-		String url = "jdbc:mysql://127.0.0.1:3306/bootcamp_protalento?serverTimezone=UTC&userSSL=false";
-		String user = "root";
-		String password = "root";
-		String diverName  = "com.mysql.cj.jdbc.Driver";
+		
+		String url = System.getenv("SPRING_DATABASE_URL"); //"jdbc:postgresql://ec2-3-225-79-57.compute-1.amazonaws.com:5432/d24uecr8r2ocj3";
+		String user = System.getenv("SPRING_DATASOURCE_USERNAME"); //"pgpsajdnasvqrk";
+		String password = System.getenv("SPRING_DATASOURCE_PASSWORD"); //"92030ba1bf51c596d40e440c2711ba3f346993f2e6d2274f4a23aa0d9d5b5c92";
+		String diverName  = System.getenv("SPRING_DATASOURCE_DRIVER"); //"org.postgresql.Driver";
 		
 		try {
 			//com.mysql.cj.jdbc.Driver.class.newInstance();
